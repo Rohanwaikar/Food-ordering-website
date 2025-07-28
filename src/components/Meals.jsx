@@ -20,7 +20,8 @@ export default function Meals() {
     data: loadedMeals, // Loaded meals data fetched from the server
     error,  // Error message if the request fails
     isLoading,  // Loading state while fetching data
-  } = useHttp("http://localhost:3000/meals", requestConfig, []);  // Fetch meals from the local server using the useHttp hook
+  } = useHttp(`${base_URL}/meals`, requestConfig, []);  
+  // Fetch meals from the local server using the useHttp hook
 
   if (isLoading) {  // If the data is still being fetched, show a loading message
     return <p className="center">Fetching meals...</p>;
