@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import CartContext from "../store/CartContext";
+const base_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3000"; 
 export default function MealsItem({meal}) {  // MealsItem component to display individual meal details
     // This component receives a meal object as a prop and displays its details such as name, price, description, and image.
     // It also provides a button to add the meal to the cart.
@@ -20,7 +21,7 @@ export default function MealsItem({meal}) {  // MealsItem component to display i
     return(
         <li className="meal-item">
             <article>
-                <img src={`http://localhost:3000/${meal.image}`} alt={meal.name} /> {/* Display the meal image */}
+                <img src={`${base_URL}/${meal.image}`} alt={meal.name} /> {/* Display the meal image */}
                 <div className="meal-item__content">
                 <h3>{meal.name}</h3> {/* Display the meal name */}
                 <p className="meal-item__price">${meal.price}</p> {/* Display the meal price */}

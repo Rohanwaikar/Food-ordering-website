@@ -3,6 +3,7 @@ import MealsItem from "./MealsItem.jsx";
 import Error from "./Error.jsx";
 import useHttp from "./useHttp.jsx";
 
+const base_URL = import.meta.env.VITE_BASE_URL || "http://localhost:3000"; // Base URL for the API, can be set via environment variable
 const requestConfig = {}; // Configuration for the HTTP request, can be customized if needed
 
 export default function Meals() {
