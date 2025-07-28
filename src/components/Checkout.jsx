@@ -5,6 +5,8 @@ import UserProgressContext from "../store/UserProgressContext";
 import Input from "./Input";
 import useHttp from "./useHttp";
 
+const base_URL = import.meta.env.VITE_API_URL || "http://localhost:3000"; // Base URL for the API, can be set via environment variable
+
 const requestConfig = {
   // Configuration for the HTTP request to submit the order
   method: "POST", // Use POST method to submit the order
@@ -25,7 +27,7 @@ export default function Checkout() {
     error, // Error message if the request fails
     sendRequest, // Function to send the HTTP request
     clearData, // Function to clear the data after the order is submitted
-  } = useHttp("http://localhost:3000/orders", requestConfig); // URL to submit the order 
+  } = useHttp(`${base_URL}/orders`, requestConfig); // URL to submit the order
   // It takes the URL and request configuration as parameters and returns data, error, sendRequest, and clearData functions.
   const totalAmount = cartCtx.items // Calculate the total amount of the items in the cart
     .reduce((total, item) => total + item.price * item.quantity, 0)
